@@ -98,15 +98,32 @@ namespace CRUDSTORE
                     return;
                 }
             }
-
+            Console.WriteLine("Store not found or not Registered");
 
         }
         static void UpdateStore()
         {
             Console.WriteLine("Enter store name to update:");
-            string storename = Console.ReadLine();
-            if (storename == string[] storeNames)
+            string name= Console.ReadLine();
+            foreach(var s in stores)
             {
+                if (s.Name.Equals(name, StringComparison.OrdinalIgnoreCase)
+            {
+                    Console.WriteLine("New Location: ");
+                    s.Location=Console.ReadLine();
+                    Console.WriteLine("Updated Profit: ");
+                    s.Profits = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Updated Expenses: ");
+                    s.Expenses= Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Number of Employees: ");
+                    s.Employees= Convert.ToInt16(Console.ReadLine());
+                    Console.WriteLine("Number of Products: ");
+                    s.Products = Convert.ToInt16(Console.ReadLine());
+
+                    Console.WriteLine("Store Details Updated Successfully");
+                    return;
+
+                }
             }
         }
         static void DeleteStore()
