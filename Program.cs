@@ -15,7 +15,9 @@ namespace CRUDSTORE
             Console.WriteLine("2. View Store");
             Console.WriteLine("3. Update Store");
             Console.WriteLine("4. Delete Store");
+            Console.WriteLine("0. Exit");
             Console.WriteLine("Enter your choice:");
+            
             int choice = Convert.ToInt16(Console.ReadLine());
 
             switch (choice)
@@ -31,6 +33,8 @@ namespace CRUDSTORE
                     break;
                 case 4:
                     DeleteStore();
+                    break;
+                case 0:
                     break;
                 default:
                     Console.WriteLine("Invalid choice");
