@@ -55,6 +55,7 @@ namespace CRUDSTORE
                         break;
                     case 0:
                         Console.WriteLine("Exiting...");
+                        return;
                         break;
                     default:
                         Console.WriteLine("Invalid choice");
@@ -78,7 +79,10 @@ namespace CRUDSTORE
             s.Employees = Convert.ToInt16(Console.ReadLine());
             Console.WriteLine("Enter store products: ");
             s.Products = Convert.ToInt16(Console.ReadLine());
+            stores.Add(s);
             Console.WriteLine("Store added successfully");
+
+
         }
 
         static void ViewStore()
@@ -107,7 +111,7 @@ namespace CRUDSTORE
             string name= Console.ReadLine();
             foreach(var s in stores)
             {
-                if (s.Name.Equals(name, StringComparison.OrdinalIgnoreCase)
+                if (s.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
             {
                     Console.WriteLine("New Location: ");
                     s.Location=Console.ReadLine();
@@ -125,14 +129,23 @@ namespace CRUDSTORE
 
                 }
             }
+            Console.WriteLine("Store not Found");   
         }
         static void DeleteStore()
         {
             Console.WriteLine("Enter store name to delete:");
-            string storename = Console.ReadLine();
-            if (storename == string[] storeNames)
+            string Name= Console.ReadLine();
+
+            for (int i=0; i<stores.Count; i++)
             {
+                if (stores[i].Name.Equals(Name,StringComparison.OrdinalIgnoreCase))
+                {
+                    stores.RemoveAt(i);
+                    Console.WriteLine("Store Removed from database");
+                    return;
+                }
             }
+            Console.WriteLine("Store Does not Exist");
         }
     }
 }
