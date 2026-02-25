@@ -4,13 +4,30 @@ using System.Xml.Serialization;
 
 namespace CRUDSTORE
 {
+    class Store
+    {
+        public string Name;
+        public string Location;
+        public double Profits;
+        public double Expenses;
+        public int Employees;
+        public int Products;
+    }
     internal class Program
     {
+
+        static List<Store> stores = new List<Store>()
+        {
+            new Store{Name="Ligaya Store",Location="Muntinlupa City",Profits=500000,Expenses=200000,Employees=150,Products=1000},
+            new Store{Name="Boni Store",Location="Mandaluyong City",Profits=300000,Expenses=100000,Employees=100,Products=500},
+            new Store{Name="Ledezma Enterprise",Location="Pasig City",Profits=400000,Expenses=150000,Employees=120,Products=800}
+        };
+
 
         static void Main(string[] args)
         {
             string[] storeNames = { "Ligaya Store", "Boni Store", "Ledezma Enterprise" };
-
+            Console.WriteLine("===STORE MENU===");
             Console.WriteLine("1. Add Store");
             Console.WriteLine("2. View Store");
             Console.WriteLine("3. Update Store");
@@ -35,6 +52,7 @@ namespace CRUDSTORE
                     DeleteStore();
                     break;
                 case 0:
+                    Console.WriteLine("Exiting...");
                     break;
                 default:
                     Console.WriteLine("Invalid choice");
@@ -44,18 +62,19 @@ namespace CRUDSTORE
 
         static void AddStore()
         {
+            Store s = new Store();
             Console.WriteLine("Enter store name:");
-            string name = Console.ReadLine();
+            s.Name = Console.ReadLine();
             Console.WriteLine("Enter store location:");
-            string location = Console.ReadLine();
+            s.Location = Console.ReadLine();
             Console.WriteLine("Enter store profits: ");
-            double profits = Convert.ToDouble(Console.ReadLine());
+            s.Profits = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter store expenses: ");
-            double expenses = Convert.ToDouble(Console.ReadLine());
+            s.Expenses = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter store employees: ");
-            int employees = Convert.ToInt16(Console.ReadLine());
+            s.Employees = Convert.ToInt16(Console.ReadLine());
             Console.WriteLine("Enter store products: ");
-            int products = Convert.ToInt16(Console.ReadLine());
+            s.Products = Convert.ToInt16(Console.ReadLine());
             Console.WriteLine("Store added successfully");
         }
 
